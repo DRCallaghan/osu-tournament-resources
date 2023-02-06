@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import SingleThought from './pages/SingleThought';
+import SingleResource from './pages/SingleResource';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -27,7 +27,7 @@ function App() {
               {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
               <Route
                 path="/thoughts/:thoughtId"
-                element={<SingleThought />}
+                element={<SingleResource />}
               />
             </Routes>
           </div>

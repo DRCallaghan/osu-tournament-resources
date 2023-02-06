@@ -7,18 +7,18 @@ import { useQuery } from '@apollo/client';
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 
-import { QUERY_SINGLE_THOUGHT } from '../utils/queries';
+import { QUERY_SINGLE_RESOURCE } from '../utils/queries';
 
-const SingleThought = () => {
-  // Use `useParams()` to retrieve value of the route parameter `:thoughtId`
-  const { thoughtId } = useParams();
+const SingleResource = () => {
+  // Use `useParams()` to retrieve value of the route parameter `:resourceId`
+  const { resourceId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_THOUGHT, {
-    // Pass the `thoughtId` URL parameter into query to retrieve this thought's data
-    variables: { thoughtId: thoughtId },
+  const { loading, data } = useQuery(QUERY_SINGLE_RESOURCE, {
+    // Pass the `resourceId` URL parameter into query to retrieve this resource's data
+    variables: { resourceId: resourceId },
   });
 
-  const thought = data?.thought || {};
+  const resource = data?.resource || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -26,9 +26,9 @@ const SingleThought = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {thought.thoughtAuthor} <br />
+        {resource.resourceAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
-          had this thought on {thought.createdAt}
+          had this resource on {resource.createdAt}
         </span>
       </h3>
       <div className="bg-light py-4">
@@ -41,18 +41,18 @@ const SingleThought = () => {
             lineHeight: '1.5',
           }}
         >
-          {thought.thoughtText}
+          {resource.resourceText}
         </blockquote>
       </div>
 
       <div className="my-5">
-        <CommentList comments={thought.comments} />
+        <CommentList comments={resource.comments} />
       </div>
       <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <CommentForm thoughtId={thought._id} />
+        <CommentForm resourceId={resource._id} />
       </div>
     </div>
   );
 };
 
-export default SingleThought;
+export default SingleResource;

@@ -1,22 +1,26 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_RESOURCES = gql`
-  query getThoughts {
-    thoughts {
+  query getResources {
+    resources {
       _id
-      thoughtText
-      thoughtAuthor
+      resourceTitle
+      resourceDescription
+      resourceLink
+      resourceAuthor
       createdAt
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_RESOURCE = gql`
+  query getSingleResource($resourceId: ID!) {
+    resource(resourceId: $resourceId) {
       _id
-      thoughtText
-      thoughtAuthor
+      resourceTitle
+      resourceDescription
+      resourceLink
+      resourceAuthor
       createdAt
       comments {
         _id
