@@ -1,0 +1,1 @@
+This will eventually be a website for hosting anything and everything I create for osu tournaments. Check back later when it's ready for launch!
