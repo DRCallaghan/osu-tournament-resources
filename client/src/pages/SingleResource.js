@@ -26,14 +26,14 @@ const SingleResource = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
-        {resource.resourceAuthor} <br />
+        <a href={`https://osu.ppy.sh/users/${resource.resourceAuthor}`} target="_blank" rel="noopener noreferrer">{resource.resourceAuthor}</a> <br />
         <span style={{ fontSize: '1rem' }}>
-          had this resource on {resource.createdAt}
+          had this to say about their <a href={resource.resourceLink} target="_blank" rel="noopener noreferrer">{resource.resourceTitle}</a> on {resource.createdAt}
         </span>
       </h3>
       <div className="bg-light py-4">
         <blockquote
-          className="p-4"
+          className="p-4 text-dark"
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
@@ -41,7 +41,7 @@ const SingleResource = () => {
             lineHeight: '1.5',
           }}
         >
-          {resource.resourceText}
+          {resource.resourceDescription}
         </blockquote>
       </div>
 

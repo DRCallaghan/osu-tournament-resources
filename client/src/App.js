@@ -24,9 +24,9 @@ function App() {
                 path="/"
                 element={<Home />}
               />
-              {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
+              {/* Create a route to display a single resource's comments based on its `thoughtId` provided in the URL */}
               <Route
-                path="/thoughts/:thoughtId"
+                path="/resources/:resourceId"
                 element={<SingleResource />}
               />
             </Routes>

@@ -25,7 +25,7 @@ const Home = () => {
           ) : (
             <ResourceList
               resources={resources}
-              title="Some Feed for Thought(s)..."
+              title="All Resources"
             />
           )}
         </div>

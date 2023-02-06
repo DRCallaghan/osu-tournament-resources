@@ -13,10 +13,10 @@ const ResourceList = ({ resources, title }) => {
       {resources &&
         resources.map((resource) => (
           <div key={resource._id} className="card mb-3">
-            <h3 className="card-header bg-dark text-light p-2 m-0">
+            <h3 className="card-header text-light p-2 m-0">
               <a href={resource.resourceLink} target="_blank" rel="noopener noreferrer">{resource.resourceTitle}</a>
             </h3>
-            <h4 className="card-header bg-dark text-light p-2 m-0">
+            <h4 className="card-header text-light p-2 m-0">
               <span style={{ fontSize: '1rem' }}>
                 Created by
               </span> <br />
