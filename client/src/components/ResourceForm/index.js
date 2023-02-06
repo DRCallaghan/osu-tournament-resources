@@ -6,7 +6,9 @@ import { QUERY_RESOURCES } from '../../utils/queries';
 
 const ResourceForm = () => {
   const [formState, setFormState] = useState({
-    resourceText: '',
+    resourceTitle: '',
+    resourceDescription: '',
+    resourceLink: '',
     resourceAuthor: '',
   });
   const [characterCount, setCharacterCount] = useState(0);
@@ -33,9 +35,13 @@ const ResourceForm = () => {
       const { data } = await addResource({
         variables: { ...formState },
       });
+      console.log(data);
+      console.log(formState);
 
       setFormState({
-        resourceText: '',
+        resourceTitle: '',
+        resourceDescription: '',
+        resourceLink: '',
         resourceAuthor: '',
       });
     } catch (err) {
@@ -46,17 +52,17 @@ const ResourceForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'resourceText' && value.length <= 280) {
+    if (name === 'resourceDescription' && value.length <= 280) {
       setFormState({ ...formState, [name]: value });
       setCharacterCount(value.length);
-    } else if (name !== 'resourceText') {
+    } else if (name !== 'resourceDescription') {
       setFormState({ ...formState, [name]: value });
     }
   };
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>What resource would you like to add?</h3>
 
       <p
         className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''
@@ -70,19 +76,37 @@ const ResourceForm = () => {
         onSubmit={handleFormSubmit}
       >
         <div className="col-12">
+          <input
+            name="resourceTitle"
+            placeholder="Title your resource"
+            value={formState.resourceTitle}
+            className="form-input w-100"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="col-12">
           <textarea
-            name="resourceText"
-            placeholder="Here's a new resource..."
-            value={formState.resourceText}
+            name="resourceDescription"
+            placeholder="Describe your resource"
+            value={formState.resourceDescription}
             className="form-input w-100"
             style={{ lineHeight: '1.5' }}
             onChange={handleChange}
           ></textarea>
         </div>
+        <div className="col-12">
+          <input
+            name="resourceLink"
+            placeholder="Link your resource"
+            value={formState.resourceLink}
+            className="form-input w-100"
+            onChange={handleChange}
+          />
+        </div>
         <div className="col-12 col-lg-9">
           <input
             name="resourceAuthor"
-            placeholder="Add your name to get credit for the resource..."
+            placeholder="Add your osu! username as author"
             value={formState.resourceAuthor}
             className="form-input w-100"
             onChange={handleChange}

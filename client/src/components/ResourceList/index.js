@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ResourceList = ({ resources, title }) => {
   if (!resources.length) {
-    return <h2>No resources Yet</h2>;
+    return <h2 className='text-center'>No Resources Yet</h2>;
   }
 
   return (

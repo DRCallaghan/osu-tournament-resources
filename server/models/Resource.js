@@ -4,29 +4,29 @@ const dateFormat = require('../utils/dateFormat');
 const resourceSchema = new Schema({
   resourceTitle: {
     type: String,
-    required: 'You need to have a title!',
+    required: false,
     minlength: 1,
     maxlength: 280,
-    trim: true,
+    trim: false,
   },
   resourceDescription: {
     type: String,
-    required: 'You need to leave a resource!',
+    required: false,
     minlength: 1,
     maxlength: 280,
-    trim: true,
+    trim: false,
   },
   resourceLink: {
     type: String,
-    required: 'You must link your resource!',
+    required: false,
     minlength: 1,
     maxlength: 280,
-    trim: true,
+    trim: false,
   },
   resourceAuthor: {
     type: String,
-    required: true,
-    trim: true,
+    required: false,
+    trim: false,
   },
   createdAt: {
     type: Date,

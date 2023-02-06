@@ -3,7 +3,9 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Resource {
     _id: ID
-    resourceText: String
+    resourceTitle: String
+    resourceDescription: String
+    resourceLink: String
     resourceAuthor: String
     createdAt: String
     comments: [Comment]!
@@ -21,7 +23,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addResource(resourceText: String!, resourceAuthor: String!): Resource
+    addResource(resourceTitle: String!, resourceDescription: String!, resourceLink: String!, resourceAuthor: String!): Resource
     addComment(resourceId: ID!, commentText: String!): Resource
     removeResource(resourceId: ID!): Resource
     removeComment(resourceId: ID!, commentId: ID!): Resource

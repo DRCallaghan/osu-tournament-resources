@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 
 import ResourceList from '../components/ResourceList';
-import ThoughtForm from '../components/ThoughtForm';
+import ResourceForm from '../components/ResourceForm';
 
 import { QUERY_RESOURCES } from '../utils/queries';
 
@@ -13,12 +13,12 @@ const Home = () => {
   return (
     <main className='bg-dark text-light'>
       <div className="flex-row justify-center">
-        <div
+        {/* <div
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
         >
-          <ThoughtForm />
-        </div>
+          <ResourceForm />
+        </div> */}
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>

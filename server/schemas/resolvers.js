@@ -12,8 +12,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addResource: async (parent, { resourceText, resourceAuthor }) => {
-      return Resource.create({ resourceText, resourceAuthor });
+    addResource: async (parent, { resourceTitle, resourceDescription, resourceLink, resourceAuthor }) => {
+      return Resource.create({ resourceTitle, resourceDescription, resourceLink, resourceAuthor });
     },
     addComment: async (parent, { resourceId, commentText }) => {
       return Resource.findOneAndUpdate(

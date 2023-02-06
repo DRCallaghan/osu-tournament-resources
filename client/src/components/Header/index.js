@@ -8,8 +8,8 @@ const Header = () => {
         <Link className="text-light" to="/">
           <h1 className="m-0">osu! Tournament Resources</h1>
         </Link>
-        <p className="m-0">Resource List</p>
-        <p className="m-0">Elo Database</p>
+        {/* <p className="m-0">Resource List</p>
+        <p className="m-0">Elo Database</p> */}
       </div>
     </header>
   );
